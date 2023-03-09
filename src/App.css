@@ -1,38 +1,169 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #336699;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.category {
+  background-color: #336699;
+  color: #ffffff;
+  font-weight: bold;
   text-align: center;
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  background: linear-gradient(to bottom, #6699cc, #003399);
+  padding: 20px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.category-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.question-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.question {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 10px;
+  border: 5px solid #336699;
+  border-radius: 5px;
+  position: relative;
+}
+
+.question h2 {
+  margin-top: 0;
+}
+
+.question .value {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background-color: #336699;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.question .answer {
+  display: none;
+  margin-top: 10px;
+}
+
+.question.show .answer {
+  display: block;
+}
+
+.show-answer-btn {
+  background-color: #336699;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.devopardy-game {
+  background-color: #1e1e2f; /* change to dark blue */
+
+}
+
+.devopardy-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px #000000;
+}
+
+
+.question-grid-item {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  height: 150px;
+  padding: 10px;
+  position: relative;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.question-grid-item .question-value {
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-grid-item .question-text {
+  margin: 0 0 10px 0;
 }
+
+.question-grid-item .question-text h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.question-grid-item .question-answer {
+  background-color: #ffc107;
+  color: #000000;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.question-grid-item .question-answer:before {
+  content: 'ANSWER:';
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.question-grid-item .question-answer:after {
+  content: '$' attr(data-value);
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+

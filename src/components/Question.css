@@ -1,0 +1,120 @@
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .question-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .question-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .question-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .question-grid-item {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    height: 150px;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .question-grid-item .question-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+  }
+  
+  .question-grid-item .question-text {
+    margin: 0 0 10px 0;
+  }
+  
+  .question-grid-item .question-text h3 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  .question-grid-item .question-answer {
+    background-color: #ffc107;
+    bottom: 0;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+  
+  .question-grid-item .question-answer:before {
+    content: 'ANSWER:';
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: -25px;
+  }
+  
+  .question-grid-item .question-answer:after {
+    content: '$' attr(data-value);
+    font-size: 2em;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: -25px;
+  }
+  
+  
+  .question-value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #336699;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .question-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .question-text h3 {
+    margin: 0;
+  }
+  
+  .question-answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .question-answer p {
+    margin: 0;
+  }
+  
+  

@@ -1,0 +1,17 @@
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #336699;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    height: 100%;
+    text-decoration: none;
+  }
+  
+  .category:hover {
+    background-color: #4d80b3;
+  }
+  
