@@ -13,7 +13,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await axios.get('https://jservice.io/api/categories?count=6');
+      //const response = await axios.get('https://jservice.io/api/categories?count=6');
+      const response = await axios.get('http://localhost:8004/categories?count=6');
       setCategories(response.data);
     };
 
@@ -21,7 +22,9 @@ const App = () => {
   }, []);
 
   const fetchQuestions = async (categoryId) => {
-    const response = await axios.get(`https://jservice.io/api/clues?category=${categoryId}&count=5`);
+    //const response = await axios.get(`https://jservice.io/api/clues?category=${categoryId}&count=5`);
+    const response = await axios.get(`http://localhost:8004/categories/${categoryId}/clues`);
+    console.log(response.data)
     setQuestions(response.data);
   };
 
@@ -34,7 +37,7 @@ const App = () => {
             <Category
               key={category.id}
               id={category.id}
-              name={category.title}
+              name={category.name}
               onClick={() => fetchQuestions(category.id)}
               className="category-grid-item"
             />
