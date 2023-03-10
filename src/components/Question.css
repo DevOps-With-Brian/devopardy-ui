@@ -31,6 +31,8 @@
     padding: 10px;
     position: relative;
   }
+
+  
   
   .question-grid-item .question-value {
     font-size: 2.5em;
@@ -87,10 +89,16 @@
     align-items: center;
     margin-top: 20px;
   }
+
+  .question-values-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+  }
   
   .question-value {
     width: 80px;
-    height: 50px;
+    height: 80px;
     background-color: lightgray;
     display: flex;
     justify-content: center;
