@@ -1,0 +1,43 @@
+.answer-modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .answer-modal-content {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    max-width: 500px;
+    max-height: 500px;
+    overflow: auto;
+    color: black;
+  }
+  
+  .answer-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .answer-modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .answer-modal-close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

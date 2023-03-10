@@ -1,0 +1,14 @@
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50%;
+    background-color: #1b1d20;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

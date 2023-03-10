@@ -81,16 +81,27 @@
   }
   
   
-  .question-value {
+  .question-values {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #336699;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
+    margin-top: 20px;
   }
   
+  .question-value {
+    width: 80px;
+    height: 50px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  
+
   .question-text {
     display: flex;
     flex-direction: column;
@@ -98,6 +109,7 @@
     align-items: center;
     padding: 10px;
     text-align: center;
+    color: black;
   }
   
   .question-text h3 {

@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Category.css'; // import your CSS file for Category component
+import './Category.css';
+import axios from 'axios';
+import Question from './Question';
 
-const Category = ({ id, name, onClick }) => {
+const Category = ({ id, name }) => {
+  const [clues, setClues] = useState([]);
+
+  useEffect(() => {
+    const fetchClues = async () => {
+      const response = await axios.get(`http://localhost:9000/categories/${id}/clues`);
+      setClues(response.data);
+    };
+
+    fetchClues();
+  }, [id]);
+
   return (
-    <Link to={`/category/${id}`} className="category" onClick={onClick}>
-      <div className="category-grid-item">
+    <div className="category-grid-item">
+      <div className="category">
         <h2>{name}</h2>
       </div>
-    </Link>
+      <div className="question-container">
+        {clues.map((clue) => (
+          <Question
+            key={clue.id}
+            clue={clue}
+            updatedClues={clues}
+            setUpdatedClues={setClues}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
