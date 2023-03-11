@@ -2,6 +2,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.app-header {
+  background-color: #343a40;
+  color: white;
+  font-size: 36px;
+  padding: 20px;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -164,6 +171,28 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-game-button {
+  margin-top: 20px;
+  background: linear-gradient(90deg, #ff6b6b, #ffb347);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.new-game-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
 }
 
 

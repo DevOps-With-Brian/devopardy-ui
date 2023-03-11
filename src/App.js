@@ -107,12 +107,14 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <div className="app-header">
+    <div className="app-header">
+      <div className="title-container">
         <h1>Devopardy</h1>
         <button className="new-game-button" onClick={handleNewGameClick}>
           New Game
         </button>
       </div>
+    </div>
       {renderCategoryList()}
       {currentQuestion && (
         <AnswerModal
