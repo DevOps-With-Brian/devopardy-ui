@@ -19,7 +19,7 @@ const AnswerModal = ({ question, answer, handleClose }) => {
           <div className="answer-modal-answer">{answer}</div>
         )}
         {!showAnswer && (
-          <button onClick={handleShowAnswerClick}>Show Answer</button>
+          <button className="show-answer-btn" onClick={handleShowAnswerClick}>Show Answer</button>
         )}
       </div>
     </div>

@@ -41,3 +41,23 @@
     font-weight: bold;
   }
   
+  .answer-modal-answer {
+    color: red;
+  }
+
+  .show-answer-btn {
+    background-color: #0074D9;
+    background-image: linear-gradient(to bottom, #0074D9, #0E60AA);
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .show-answer-btn:hover {
+    background-image: linear-gradient(to bottom, #0E60AA, #0074D9);
+    cursor: pointer;
+  }

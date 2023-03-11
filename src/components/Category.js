@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './Category.css';
 import axios from 'axios';
 import Question from './Question';
@@ -9,7 +8,7 @@ const Category = ({ id, name }) => {
 
   useEffect(() => {
     const fetchClues = async () => {
-      const response = await axios.get(`http://localhost:9000/categories/${id}/clues`);
+      const response = await axios.get(`http://localhost:9000/categories/${id}/start_game`);
       setClues(response.data);
     };
 
