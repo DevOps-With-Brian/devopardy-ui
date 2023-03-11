@@ -99,11 +99,20 @@ const App = () => {
     }
   };
 
+  const handleNewGameClick = async () => {
+    const newQuestions = await fetchCategoriesAndQuestions([1, 2, 3, 4, 5, 6]);
+    const updatedQuestions = newQuestions.map((question) => ({
+      ...question,
+      answered: false,
+    }));
+    setQuestions(updatedQuestions);
+  };
+
   return (
     <div className="app-container">
       <div className="app-header">
         <h1>Devopardy</h1>
-        <button className="new-game-button" onClick={() => fetchCategoriesAndQuestions([1, 2, 3, 4, 5, 6])}>
+        <button className="new-game-button" onClick={handleNewGameClick}>
           New Game
         </button>
       </div>
