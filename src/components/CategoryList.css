@@ -1,0 +1,50 @@
+  /* CategoryList.css */
+  .category-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+  }
+  
+  .category {
+    flex: 1;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .category h2 {
+    margin-top: 0;
+  }
+  
+  .category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category li {
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .category li:hover {
+    background-color: #eee;
+  }
+  
+  .category li.answered {
+    background-color: yellow;
+  }
+  
+  .category li.answered:hover {
+    background-color: yellow;
+    cursor: default;
+  }
+  
