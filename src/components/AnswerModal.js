@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './AnswerModal.css';
 
-const AnswerModal = ({ question, answer, handleClose }) => {
+const AnswerModal = ({ question, answer, handleClose, questions, currentQuestion, setQuestions }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleShowAnswerClick = () => {
+    const updatedQuestions = questions.map((question) =>
+      question.id === currentQuestion.id ? { ...question, answered: true } : question
+    );
+    setQuestions(updatedQuestions);
     setShowAnswer(true);
   };
 

@@ -1,41 +1,15 @@
-import React, { useState } from 'react';
-import './Question.css';
-import AnswerModal from './AnswerModal';
+import React from 'react';
 
-const Question = ({ clue }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [clicked, setClicked] = useState(false);
-
-  const handleModalClose = () => {
-    setShowModal(false);
-    setShowAnswer(false);
+const Question = ({ question, onAnswered }) => {
+  const handleClick = () => {
+    onAnswered();
   };
-
-  const handleShowAnswerClick = () => {
-    setShowAnswer((prevShowAnswer) => !prevShowAnswer);
-    setClicked(true);
-  };
-
-  const questionValueClass = clicked ? 'question-value clicked' : 'question-value';
 
   return (
-    <div className="question-container">
-      <div
-        className={questionValueClass}
-        onClick={() => setShowModal(true)}
-      >
-        {clue.showModal ? '' : `$${clue.value}`}
-      </div>
-      {showModal && (
-        <AnswerModal
-          question={clue.question}
-          answer={clue.answer}
-          show={showAnswer}
-          handleClose={handleModalClose}
-          handleShowAnswer={handleShowAnswerClick}
-        />
-      )}
+    <div className="question">
+      <h2>{question.value}</h2>
+      <p>{question.question}</p>
+      <button onClick={handleClick}>Show Answer</button>
     </div>
   );
 };
