@@ -19,7 +19,6 @@ const App = () => {
       throw new Error('Failed to fetch categories');
     }
     const data = await response.json();
-    console.log('Fetched categories:', data);
     setCategories(data);
   };
 
@@ -32,7 +31,6 @@ const App = () => {
         throw new Error('Failed to fetch questions');
       }
       const data = await response.json();
-      console.log(`This is line 34: ${data}`);
       data.forEach((question) => {
         questions.push({
           id: question.id,
@@ -44,7 +42,6 @@ const App = () => {
         });
       });
     }
-    console.log('Questions:', questions); // Add this line to check if the questions array is being populated
     return questions;
   };
 
