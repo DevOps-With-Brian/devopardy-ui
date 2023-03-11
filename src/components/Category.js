@@ -8,7 +8,7 @@ const Category = ({ id, name }) => {
 
   useEffect(() => {
     const fetchClues = async () => {
-      const response = await axios.get(`http://localhost:9000/categories/${id}/start_game`);
+      const response = await axios.get(`http://localhost:8004/categories/${id}/start_game`);
       setClues(response.data);
     };
 

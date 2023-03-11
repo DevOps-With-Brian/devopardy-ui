@@ -23,6 +23,7 @@ const QuestionGrid = ({ categories, questions, onQuestionClick }) => {
             <div className="value-row" key={value}>
             {categories.map((category) => {
                 const question = questions.find((q) => q.category_id === category.id && q.value === value);
+                console.log("The question is: ", question)
                 return (
                     <QuestionCell
                     key={category.id + value}

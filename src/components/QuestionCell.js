@@ -8,7 +8,6 @@ const QuestionCell = ({ question, onQuestionClick }) => {
         onClick={() => onQuestionClick(question)}
       >
         <div className="question-cell-value">{question.value}</div>
-        <div className="question-cell-category">{question.category}</div>
       </div>
     );
   };

@@ -1,49 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import CategoryList from './components/CategoryList';
 import QuestionGrid from './components/QuestionGrid';
-import QuestionCell from './components/QuestionCell';
 import AnswerModal from './components/AnswerModal';
 
-const API_URL = 'http://localhost:9000';
+const API_URL = 'http://localhost:8004';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchCategories = async () => {
-    const response = await fetch(`${API_URL}/categories`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch categories');
-    }
-    const data = await response.json();
-    setCategories(data);
-  };
+  useEffect(() => { handleNewGameClick(); }, [])
 
-  const fetchCategoriesAndQuestions = async (categoryIds) => {
-    const questions = [];
-    for (let i = 0; i < categoryIds.length; i++) {
-      const categoryId = categoryIds[i];
-      const response = await fetch(`${API_URL}/categories/${categoryId}/start_game`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch questions');
-      }
-      const data = await response.json();
-      data.forEach((question) => {
-        questions.push({
-          id: question.id,
-          category_id: categoryId,
-          question: question.question,
-          answer: question.answer,
-          value: question.value,
-          answered: false,
-        });
-      });
-    }
-    return questions;
-  };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const categoryIdsResponse = await fetch(`${API_URL}/categories?count=20`);
+  //       if (!categoryIdsResponse.ok) {
+  //         throw new Error('Failed to fetch category ids');
+  //       }
+  //       const categoryIdsData = await categoryIdsResponse.json();
+  //       const shuffledCategoryIds = categoryIdsData
+  //         .map(category => category.id)
+  //         .sort(() => 0.5 - Math.random())
+  //         .slice(0, 6);
+  
+  //       const categories = [];
+  //       const questions = [];
+  //       for (let i = 0; i < shuffledCategoryIds.length; i++) {
+  //         const categoryId = shuffledCategoryIds[i];
+  
+  //         const categoryResponse = await fetch(`${API_URL}/categories/${categoryId}`);
+  //         if (!categoryResponse.ok) {
+  //           throw new Error(`Failed to fetch category ${categoryId}`);
+  //         }
+  //         const categoryData = await categoryResponse.json();
+  //         categories.push(categoryData);
+  
+  //         const questionsResponse = await fetch(`${API_URL}/categories/${categoryId}/clues`);
+  //         if (!questionsResponse.ok) {
+  //           throw new Error(`Failed to fetch questions for category ${categoryId}`);
+  //         }
+  //         const questionsData = await questionsResponse.json();
+  //         console.log("This is line 48: ", questionsData)
+  //         questionsData.forEach((question) => {
+  //           questions.push({
+  //             id: question.id,
+  //             category_id: question.category_id,
+  //             question: question.question,
+  //             answer: question.answer,
+  //             value: question.value,
+  //             answered: false,
+  //           });
+  //         });
+  //       }
+  
+  //       setCategories(categories);
+  //       setQuestions(questions);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, []);
 
   const handleQuestionClick = (question) => {
     setCurrentQuestion(question);
@@ -64,21 +88,11 @@ const App = () => {
     });
   };
 
-  const handleFetchQuestions = async (categoryIds) => {
-    const newQuestions = await fetchCategoriesAndQuestions(categoryIds);
-    const updatedQuestions = newQuestions.map((question) => ({
-      ...question,
-      answered: false,
-    }));
-    setQuestions(updatedQuestions);
-  };
-
-  useEffect(() => {
-    fetchCategories();
-    handleFetchQuestions([1, 2, 3, 4, 5, 6]); // Call handleFetchQuestions instead of fetchCategoriesAndQuestions
-  }, []);
 
   const renderCategoryList = () => {
+    if (loading) {
+      return <div>Loading...</div>;
+    }
     if (categories.length > 0 && questions.length > 0) {
       return (
         <>
@@ -97,13 +111,59 @@ const App = () => {
   };
 
   const handleNewGameClick = async () => {
-    const newQuestions = await fetchCategoriesAndQuestions([1, 2, 3, 4, 5, 6]);
-    const updatedQuestions = newQuestions.map((question) => ({
-      ...question,
-      answered: false,
-    }));
-    setQuestions(updatedQuestions);
-  };
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const categoryIdsResponse = await fetch(`${API_URL}/categories?count=20`);
+        if (!categoryIdsResponse.ok) {
+          throw new Error('Failed to fetch category ids');
+        }
+        const categoryIdsData = await categoryIdsResponse.json();
+        const shuffledCategoryIds = categoryIdsData
+          .map(category => category.id)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 6);
+  
+        const categories = [];
+        const questions = [];
+        for (let i = 0; i < shuffledCategoryIds.length; i++) {
+          const categoryId = shuffledCategoryIds[i];
+  
+          const categoryResponse = await fetch(`${API_URL}/categories/${categoryId}`);
+          if (!categoryResponse.ok) {
+            throw new Error(`Failed to fetch category ${categoryId}`);
+          }
+          const categoryData = await categoryResponse.json();
+          categories.push(categoryData);
+  
+          const questionsResponse = await fetch(`${API_URL}/categories/${categoryId}/clues`);
+          if (!questionsResponse.ok) {
+            throw new Error(`Failed to fetch questions for category ${categoryId}`);
+          }
+          const questionsData = await questionsResponse.json();
+          console.log("This is line 48: ", questionsData)
+          questionsData.forEach((question) => {
+            questions.push({
+              id: question.id,
+              category_id: question.category_id,
+              question: question.question,
+              answer: question.answer,
+              value: question.value,
+              answered: false,
+            });
+          });
+        }
+  
+        setCategories(categories);
+        setQuestions(questions);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+    fetchData();
+    };
 
   return (
     <div className="app-container">
