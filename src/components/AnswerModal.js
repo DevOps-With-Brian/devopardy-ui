@@ -3,6 +3,7 @@ import './AnswerModal.css';
 
 const AnswerModal = ({ question, answer, handleClose }) => {
   const [showAnswer, setShowAnswer] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleShowAnswerClick = () => {
     setShowAnswer(true);

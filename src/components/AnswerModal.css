@@ -61,3 +61,7 @@
     background-image: linear-gradient(to bottom, #0E60AA, #0074D9);
     cursor: pointer;
   }
+
+  .show-answer-btn:focus ~ .question-value {
+    color: #ffa800;
+  }

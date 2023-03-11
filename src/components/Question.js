@@ -5,6 +5,7 @@ import AnswerModal from './AnswerModal';
 const Question = ({ clue }) => {
   const [showModal, setShowModal] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const handleModalClose = () => {
     setShowModal(false);
@@ -13,12 +14,15 @@ const Question = ({ clue }) => {
 
   const handleShowAnswerClick = () => {
     setShowAnswer((prevShowAnswer) => !prevShowAnswer);
+    setClicked(true);
   };
+
+  const questionValueClass = clicked ? 'question-value clicked' : 'question-value';
 
   return (
     <div className="question-container">
       <div
-        className="question-value"
+        className={questionValueClass}
         onClick={() => setShowModal(true)}
       >
         {clue.showModal ? '' : `$${clue.value}`}

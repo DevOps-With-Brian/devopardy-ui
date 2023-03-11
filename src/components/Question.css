@@ -249,4 +249,10 @@
     margin: 0;
   }
   
+  .question-value.highlighted {
+    background-color: #ffc107;
+  }
   
+  .question-value.selected {
+    background-color: #f4d03f;
+  }
