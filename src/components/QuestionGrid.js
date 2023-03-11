@@ -3,7 +3,6 @@ import QuestionCell from './QuestionCell';
 import './QuestionGrid.css';
 
 const QuestionGrid = ({ categories, questions, onQuestionClick }) => {
-    console.log(categories, questions);
     if (!categories || !Array.isArray(categories) || categories.length < 6) {
         return <div>Invalid categories</div>;
       }
@@ -11,8 +10,6 @@ const QuestionGrid = ({ categories, questions, onQuestionClick }) => {
       if (!questions || !Array.isArray(questions) || questions.length < 30) {
         return <div>Invalid questions</div>;
       }
-    
-      console.log(categories, questions);
     return (
         <div className="question-grid">
         <div className="category-row">
