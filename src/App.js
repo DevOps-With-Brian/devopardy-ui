@@ -3,7 +3,7 @@ import './App.css';
 import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
 
-const API_URL = 'http://localhost:8004';
+export const API_URL = 'http://localhost:9000';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -14,60 +14,6 @@ const App = () => {
 
   useEffect(() => { handleNewGameClick(); }, [])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const categoryIdsResponse = await fetch(`${API_URL}/categories?count=20`);
-  //       if (!categoryIdsResponse.ok) {
-  //         throw new Error('Failed to fetch category ids');
-  //       }
-  //       const categoryIdsData = await categoryIdsResponse.json();
-  //       const shuffledCategoryIds = categoryIdsData
-  //         .map(category => category.id)
-  //         .sort(() => 0.5 - Math.random())
-  //         .slice(0, 6);
-  
-  //       const categories = [];
-  //       const questions = [];
-  //       for (let i = 0; i < shuffledCategoryIds.length; i++) {
-  //         const categoryId = shuffledCategoryIds[i];
-  
-  //         const categoryResponse = await fetch(`${API_URL}/categories/${categoryId}`);
-  //         if (!categoryResponse.ok) {
-  //           throw new Error(`Failed to fetch category ${categoryId}`);
-  //         }
-  //         const categoryData = await categoryResponse.json();
-  //         categories.push(categoryData);
-  
-  //         const questionsResponse = await fetch(`${API_URL}/categories/${categoryId}/clues`);
-  //         if (!questionsResponse.ok) {
-  //           throw new Error(`Failed to fetch questions for category ${categoryId}`);
-  //         }
-  //         const questionsData = await questionsResponse.json();
-  //         console.log("This is line 48: ", questionsData)
-  //         questionsData.forEach((question) => {
-  //           questions.push({
-  //             id: question.id,
-  //             category_id: question.category_id,
-  //             question: question.question,
-  //             answer: question.answer,
-  //             value: question.value,
-  //             answered: false,
-  //           });
-  //         });
-  //       }
-  
-  //       setCategories(categories);
-  //       setQuestions(questions);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
-  
-  //   fetchData();
-  // }, []);
 
   const handleQuestionClick = (question) => {
     setCurrentQuestion(question);
@@ -169,7 +115,7 @@ const App = () => {
     <div className="app-container">
     <div className="app-header">
       <div className="title-container">
-        <h1>Devopardy</h1>
+        <h1>DevOpardy</h1>
         <button className="new-game-button" onClick={handleNewGameClick}>
           New Game
         </button>
