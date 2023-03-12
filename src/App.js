@@ -13,6 +13,7 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [gameStarted, setGameStarted] = useState(false);
+  
 
   useEffect(() => { handleNewGameClick(); }, [])
 
@@ -60,6 +61,7 @@ const App = () => {
       return <div>Loading categories...</div>;
     }
   };
+
 
   const handleNewGameClick = async () => {
     const fetchData = async () => {
@@ -151,7 +153,7 @@ const App = () => {
             )}
           </>
         ) : (
-          <LandingPage onStartGame={handleStartGame} setGameStarted={setGameStarted} />
+          <LandingPage onStartGame={handleStartGame} />
         )}
       </div>
     );
