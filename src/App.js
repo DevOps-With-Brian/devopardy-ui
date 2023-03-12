@@ -4,7 +4,7 @@ import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
 import LandingPage from './components/LandingPage';
 
-export const API_URL = 'http://localhost:9000';
+export const API_URL=process.env.REACT_APP_API_URL
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
