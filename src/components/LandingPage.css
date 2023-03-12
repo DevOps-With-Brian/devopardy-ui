@@ -1,0 +1,31 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1e1e2f;
+  }
+  
+  .landing-page h1 {
+    color: #fff;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .start-game-button {
+    background: linear-gradient(90deg, #ff6b6b, #ffb347);
+    color: #fff;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .start-game-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  }
