@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
+import LandingPage from './components/LandingPage';
 
 export const API_URL = 'http://localhost:9000';
 
@@ -11,9 +12,13 @@ const App = () => {
   const [showAnswerModal, setShowAnswerModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => { handleNewGameClick(); }, [])
 
+  const handleStartGame = () => {
+    setGameStarted(true);
+  };
 
   const handleQuestionClick = (question) => {
     setCurrentQuestion(question);
@@ -111,39 +116,45 @@ const App = () => {
     fetchData();
     };
 
-  return (
-    <div className="app-container">
-    <div className="app-header">
-      <div className="title-container">
-        <h1>DevOpardy</h1>
-        <button className="new-game-button" onClick={handleNewGameClick}>
-          New Game
-        </button>
+    return (
+      <div className="app-container">
+        {gameStarted ? (
+          <>
+            <div className="app-header">
+              <div className="title-container">
+                <h1>DevOpardy</h1>
+                <button className="new-game-button" onClick={handleNewGameClick}>
+                  New Game
+                </button>
+              </div>
+            </div>
+            {renderCategoryList()}
+            {currentQuestion && (
+              <AnswerModal
+                question={currentQuestion.question}
+                answer={currentQuestion.answer}
+                handleClose={handleAnswerModalClose}
+                questions={questions}
+                currentQuestion={currentQuestion}
+                setQuestions={setQuestions}
+              />
+            )}
+            {showAnswerModal && (
+              <AnswerModal
+                question={currentQuestion.question}
+                answer={currentQuestion.answer}
+                handleClose={handleAnswerModalClose}
+                questions={questions}
+                currentQuestion={currentQuestion}
+                setQuestions={setQuestions}
+              />
+            )}
+          </>
+        ) : (
+          <LandingPage onStartGame={handleStartGame} setGameStarted={setGameStarted} />
+        )}
       </div>
-    </div>
-      {renderCategoryList()}
-      {currentQuestion && (
-        <AnswerModal
-          question={currentQuestion.question}
-          answer={currentQuestion.answer}
-          handleClose={handleAnswerModalClose}
-          questions={questions}
-          currentQuestion={currentQuestion}
-          setQuestions={setQuestions}
-        />
-      )}
-      {showAnswerModal && (
-        <AnswerModal
-          question={currentQuestion.question}
-          answer={currentQuestion.answer}
-          handleClose={handleAnswerModalClose}
-          questions={questions}
-          currentQuestion={currentQuestion}
-          setQuestions={setQuestions}
-        />
-      )}
-    </div>
-  );
-};
+    );
+  };
 
 export default App;
