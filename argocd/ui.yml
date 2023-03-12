@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devopardy-ui
+  annotations:
+    service.beta.kubernetes.io/linode-loadbalancer-default-protocol: http
+    service.beta.kubernetes.io/linode-loadbalancer-port-443: '{ "letsencrypt-prod", "protocol": "https" }'
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: devopardy-ui
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopardy-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devopardy-ui
+  template:
+    metadata:
+      labels:
+        app: devopardy-ui
+    spec:
+      containers:
+      - name: devopardy-ui
+        image: devopswithbrian/devopardy-ui:latest
+        env:
+          - name: REACT_APP_API_URL
+            valueFrom:
+              secretKeyRef:
+                name: devopardy-prd
+                key: REACT_APP_API_URL
+        ports:
+        - containerPort: 80
+		
