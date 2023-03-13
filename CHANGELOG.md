@@ -1,3 +1,9 @@
+## 1.3.4 (2023-03-13)
+
+### Fix
+
+- **api**: updating the api url env var and such
+
 ## 1.3.3 (2023-03-13)
 
 ### Fix
