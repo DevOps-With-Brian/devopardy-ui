@@ -1,3 +1,9 @@
+## 1.3.2 (2023-03-13)
+
+### Fix
+
+- **ui**: trying to get ui working with api
+
 ## 1.3.1 (2023-03-13)
 
 ### Fix
