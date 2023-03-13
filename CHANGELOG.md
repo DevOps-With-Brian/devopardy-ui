@@ -1,3 +1,9 @@
+## 1.3.3 (2023-03-13)
+
+### Fix
+
+- **app.js**: fixing the old api route
+
 ## 1.3.2 (2023-03-13)
 
 ### Fix
