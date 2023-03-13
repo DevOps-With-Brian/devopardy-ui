@@ -20,4 +20,4 @@ spec:
           service:
             name: devopardy-ui
             port:
-              number: 3000
+              number: 80

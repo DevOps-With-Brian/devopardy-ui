@@ -1,10 +1,11 @@
-FROM node:alpine
-WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-COPY ./ ./
-RUN npm i
+# Use an official Nginx runtime as a parent image
+FROM nginx:latest
 
-EXPOSE 3000
+# Copy the React build files to the Nginx document root
+COPY build /usr/share/nginx/html
 
-CMD ["npm", "start"]
+# Copy the Nginx configuration file to the appropriate directory
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the HTTP port
+EXPOSE 80
