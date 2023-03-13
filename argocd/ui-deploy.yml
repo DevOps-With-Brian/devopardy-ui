@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: devopardy-ui
-        image: devopswithbrian/devopardy-ui:1.5.2
+        image: devopswithbrian/devopardy-ui:1.5.3
         env:
           - name: REACT_APP_API_URL
             valueFrom:
