@@ -1,3 +1,9 @@
+## 1.4.1 (2023-03-13)
+
+### Fix
+
+- **cors**: adding in proxy to allow internal api calls
+
 ## 1.4.0 (2023-03-13)
 
 ### Feat
