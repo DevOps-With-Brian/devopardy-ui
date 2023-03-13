@@ -43,4 +43,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: devopswithbrian/devopardy-ui:latest,devopswithbrian/devopardy-api:${{ env.COMMITIZEN_VER }}
+          tags: devopswithbrian/devopardy-ui:latest,devopswithbrian/devopardy-ui:${{ env.COMMITIZEN_VER }}
