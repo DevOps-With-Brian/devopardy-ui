@@ -15,5 +15,11 @@ spec:
       containers:
       - name: devopardy-ui
         image: devopswithbrian/devopardy-ui:1.3.3
+        env:
+          - name: REACT_APP_API_URL
+            valueFrom:
+              secretKeyRef:
+                name: devopardy-prd
+                key: REACT_APP_API_URL
         ports:
         - containerPort: 3000
