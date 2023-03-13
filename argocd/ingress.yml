@@ -5,6 +5,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
 spec:
   tls:
   - hosts:
@@ -20,4 +22,15 @@ spec:
           service:
             name: devopardy-ui
             port:
-              number: 3000
+              name: devopardy-ui
+  - host: api.devopswithbrian.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: devopardy-api
+            port:
+              name: devopardy-api
+      
