@@ -4,7 +4,6 @@ import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
 import LandingPage from './components/LandingPage';
 
-export const API_URL=process.env.REACT_APP_API_URL
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -67,7 +66,7 @@ const App = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const categoryIdsResponse = await fetch(`${API_URL}/categories?count=20`);
+        const categoryIdsResponse = await fetch(`/api/categories?count=20`);
         if (!categoryIdsResponse.ok) {
           throw new Error('Failed to fetch category ids');
         }
