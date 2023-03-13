@@ -11,7 +11,6 @@ spec:
   tls:
   - hosts:
     - devopardy.devopswithbrian.com
-    - devopardy-api.devopswithbrian.com
     secretName: devopardy-tls
   rules:
   - host: devopardy.devopswithbrian.com
@@ -24,14 +23,4 @@ spec:
             name: devopardy-ui
             port:
               name: devopardy-ui
-  - host: devopardy-api.devopswithbrian.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: devopardy-api
-            port:
-              name: devopardy-api
       
