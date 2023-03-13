@@ -4,7 +4,7 @@ metadata:
   name: devopardy-ui
   annotations:
     service.beta.kubernetes.io/linode-loadbalancer-default-protocol: http
-    service.beta.kubernetes.io/linode-loadbalancer-port-443: '{ "letsencrypt-prod", "protocol": "https" }'
+    service.beta.kubernetes.io/linode-loadbalancer-port-443: '{ "letsencrypt-secret-prod", "protocol": "https" }'
 spec:
   type: ClusterIP
   ports:
