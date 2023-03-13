@@ -81,14 +81,14 @@ const App = () => {
         for (let i = 0; i < shuffledCategoryIds.length; i++) {
           const categoryId = shuffledCategoryIds[i];
   
-          const categoryResponse = await fetch(`${API_URL}/categories/${categoryId}`);
+          const categoryResponse = await fetch(`/api/categories/${categoryId}`);
           if (!categoryResponse.ok) {
             throw new Error(`Failed to fetch category ${categoryId}`);
           }
           const categoryData = await categoryResponse.json();
           categories.push(categoryData);
   
-          const questionsResponse = await fetch(`${API_URL}/categories/${categoryId}/clues`);
+          const questionsResponse = await fetch(`/api/categories/${categoryId}/clues`);
           if (!questionsResponse.ok) {
             throw new Error(`Failed to fetch questions for category ${categoryId}`);
           }
