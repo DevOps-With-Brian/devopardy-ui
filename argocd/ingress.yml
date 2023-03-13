@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - devopardy.devopswithbrian.com
+    - www.devopardy.com
     secretName: devopardy-tls
   rules:
-  - host: devopardy.devopswithbrian.com
+  - host: www.devopardy.com
     http:
       paths:
       - pathType: Prefix
