@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Category.css';
 import axios from 'axios';
 import Question from './Question';
-import { API_URL } from '../App';
 
 
 const Category = ({ id, name }) => {
@@ -10,7 +9,7 @@ const Category = ({ id, name }) => {
 
   useEffect(() => {
     const fetchClues = async () => {
-      const response = await axios.get(`${API_URL}/categories/${id}/start_game`);
+      const response = await axios.get(`/api/categories/${id}/start_game`);
       setClues(response.data);
     };
 
