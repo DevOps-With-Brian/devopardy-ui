@@ -93,7 +93,6 @@ const App = () => {
             throw new Error(`Failed to fetch questions for category ${categoryId}`);
           }
           const questionsData = await questionsResponse.json();
-          console.log(questionsData)
           questionsData.forEach((question) => {
             questions.push({
               id: question.id,
