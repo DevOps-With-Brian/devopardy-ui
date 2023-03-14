@@ -1,3 +1,9 @@
+## 1.6.1 (2023-03-14)
+
+### Fix
+
+- **logging**: removing some logging
+
 ## 1.6.0 (2023-03-14)
 
 ### Feat
