@@ -9,9 +9,20 @@ spec:
   tls:
   - hosts:
     - www.devopardy.com
+    - devopardy.com
     secretName: devopardy-tls
   rules:
   - host: www.devopardy.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: devopardy-ui
+            port:
+              number: 80
+  - host: devopardy.com
     http:
       paths:
       - pathType: Prefix
