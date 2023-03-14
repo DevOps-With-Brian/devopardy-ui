@@ -38,6 +38,9 @@ jobs:
         run: |
           echo "The current version is: ${{ env.COMMITIZEN_VER }}"
       -
+        name: Build React App
+        run: npm run build
+      -
         name: Build and push
         uses: docker/build-push-action@v4
         with:

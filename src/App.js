@@ -83,18 +83,17 @@ const App = () => {
   
           const categoryResponse = await fetch(`/api/categories/${categoryId}`);
           if (!categoryResponse.ok) {
-            console.log(categoryResponse)
             throw new Error(`Failed to fetch category ${categoryId}`);
           }
           const categoryData = await categoryResponse.json();
           categories.push(categoryData);
   
-          const questionsResponse = await fetch(`/api/categories/${categoryId}/clues`);
+          const questionsResponse = await fetch(`/api/categories/${categoryId}/start_game`);
           if (!questionsResponse.ok) {
             throw new Error(`Failed to fetch questions for category ${categoryId}`);
           }
           const questionsData = await questionsResponse.json();
-          console.log("This is line 48: ", questionsData)
+          console.log(questionsData)
           questionsData.forEach((question) => {
             questions.push({
               id: question.id,
@@ -111,7 +110,6 @@ const App = () => {
         setQuestions(questions);
         setLoading(false);
       } catch (error) {
-        console.log(error)
         console.log(error.message);
       }
     };
