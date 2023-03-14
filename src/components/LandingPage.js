@@ -1,10 +1,12 @@
 import React from 'react';
 import './LandingPage.css';
+import logo from '../logo.png';
 
 const LandingPage = (props) => {
   const handleStartGameClick = () => {
       props.onStartGame();
   };
+
 
   return (
     <div className="landing-page">
@@ -17,6 +19,11 @@ const LandingPage = (props) => {
       </button>
       <hr className="divider" />
       <div className="game-rules-section">
+        <h2 className="created-by-title">Created By</h2>
+        <img src={logo} alt="Logo" />
+        <p className="created-by-description">
+          This was created live on and off stream by DevOpsWithBrian on his Twitch channel, please go support me at my <a href="https://www.twitch.tv/devopswithbrian">Twitch Channel</a>
+        </p>
         <h2 className="game-rules-title">Game Rules</h2>
         <p className="game-rules-description">
           The overall game rules/how to play are outlined below.  These are mainly if you are playing with others online or via a streaming/chat type setup.

@@ -1,5 +1,12 @@
 body {
   font-family: Arial, sans-serif;
+  height: 100%
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .app-header {
@@ -10,8 +17,12 @@ body {
   text-shadow: 2px 2px #333;
 }    
 
+.main-container {
+  flex-grow: 1;
+  min-height: calc(100vh - 80px); /* subtract header and footer heights */
+}
+
 .container {
-  max-width: 1000px;
   margin: 0 auto;
 }
 
