@@ -1,3 +1,9 @@
+## 1.5.1 (2023-03-14)
+
+### Fix
+
+- **security**: updating api routes and how the app works to secure things better
+
 ## 1.5.0 (2023-03-13)
 
 ### Feat
