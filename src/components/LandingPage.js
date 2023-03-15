@@ -22,7 +22,7 @@ const LandingPage = (props) => {
         <h2 className="created-by-title">Created By</h2>
         <img src={logo} alt="Logo" />
         <p className="created-by-description">
-          This was created live on and off stream by DevOpsWithBrian on his Twitch channel, please go support me at my <a href="https://www.twitch.tv/devopswithbrian">Twitch Channel</a>
+          This was created live on and off stream by DevOpsWithBrian on his Twitch channel, please go support me at my <a href="https://www.twitch.tv/devopswithbrian">Twitch Channel</a>.  You can also join our <a href="https://discord.gg/2ZkhQxNs5A">Discord</a>
         </p>
         <h2 className="game-rules-title">Game Rules</h2>
         <p className="game-rules-description">
