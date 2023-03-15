@@ -3,6 +3,7 @@ This is a React Web UI for a DevOps/Cloud related trivia game used on [DevOpsWit
 
 This also requires [DevOpardy API](https://github.com/DevOps-With-Brian/devopardy-api)
 
+The game can be played at https://www.devopardy.com
 
 # Starting/Running
 Ensure you have installed first:
