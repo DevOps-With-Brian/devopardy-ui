@@ -1,3 +1,9 @@
+## 1.7.0 (2023-03-15)
+
+### Feat
+
+- **discord**: updating landing page with discord info
+
 ## 1.6.2 (2023-03-14)
 
 ### Fix
