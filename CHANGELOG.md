@@ -1,3 +1,11 @@
+## 1.9.1 (2023-03-15)
+
+### Fix
+
+- **deps**: update dependency web-vitals to v3
+- **deps**: update dependency web-vitals to v3
+- **deps**: update dependency web-vitals to v3
+
 ## 1.9.0 (2023-03-15)
 
 ### Feat
