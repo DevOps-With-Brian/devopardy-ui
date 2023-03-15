@@ -1,3 +1,9 @@
+## 1.9.0 (2023-03-15)
+
+### Feat
+
+- **social-sharing**: adding in the og stuff needed for social sharing
+
 ## 1.8.0 (2023-03-15)
 
 ### Feat
