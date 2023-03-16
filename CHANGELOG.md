@@ -1,3 +1,11 @@
+## 1.10.0 (2023-03-16)
+
+### Feat
+
+- **changelog**: adding in changelog page
+- **changelog**: adding in changelog page
+- **changelog**: adding in changelog page
+
 ## 1.9.3 (2023-03-16)
 
 ### Fix
