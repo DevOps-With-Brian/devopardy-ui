@@ -1,3 +1,9 @@
+## 1.9.2 (2023-03-16)
+
+### Fix
+
+- **answer-bug**: fixing the answer bug that allows you to see all the answers
+
 ## 1.9.1 (2023-03-15)
 
 ### Fix
