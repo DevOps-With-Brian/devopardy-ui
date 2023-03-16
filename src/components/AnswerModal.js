@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import './AnswerModal.css';
 
-const AnswerModal = ({ question, answer, handleClose, questions, currentQuestion, setQuestions }) => {
-  const [showAnswer, setShowAnswer] = useState(false);
-
-  const handleShowAnswerClick = () => {
-    const updatedQuestions = questions.map((question) =>
-      question.id === currentQuestion.id ? { ...question, answered: true } : question
-    );
-    setQuestions(updatedQuestions);
-    setShowAnswer(true);
-  };
-
+const AnswerModal = ({ 
+  question, 
+  answer, 
+  handleClose, 
+  showAnswer,
+  handleShowAnswer,
+}) => {
+  
   return (
     <div className="answer-modal">
       <div className="answer-modal-content">
@@ -23,7 +20,7 @@ const AnswerModal = ({ question, answer, handleClose, questions, currentQuestion
           <div className="answer-modal-answer">{answer}</div>
         )}
         {!showAnswer && (
-          <button className="show-answer-btn" onClick={handleShowAnswerClick}>Show Answer</button>
+          <button className="show-answer-btn" onClick={handleShowAnswer}>Show Answer</button>
         )}
       </div>
     </div>

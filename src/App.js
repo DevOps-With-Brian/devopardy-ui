@@ -12,22 +12,34 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [gameStarted, setGameStarted] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
   
 
   useEffect(() => { handleNewGameClick(); }, [])
 
+  const handleShowAnswer = () => {
+    setShowAnswer(true);
+  };
+  
   const handleStartGame = () => {
     setGameStarted(true);
   };
 
   const handleQuestionClick = (question) => {
+    if (currentQuestion && currentQuestion.id === question.id) {
+      return; // Do not update the state if the clicked question is the same as the current one.
+    }
+  
+    setShowAnswerModal(false); // Close the current AnswerModal
+    setShowAnswer(false); // Reset the showAnswer state
     setCurrentQuestion(question);
-    setShowAnswerModal(true);
+    setShowAnswerModal(true); // Open the new AnswerModal
   };
 
   const handleAnswerModalClose = () => {
     setShowAnswerModal(false);
     setCurrentQuestion(null);
+    setShowAnswer(false);
     setQuestions((prevQuestions) => {
       return prevQuestions.map((question) => {
         if (question.id === currentQuestion.id) {
@@ -147,6 +159,8 @@ const App = () => {
                 questions={questions}
                 currentQuestion={currentQuestion}
                 setQuestions={setQuestions}
+                showAnswer={showAnswer}
+                handleShowAnswer={handleShowAnswer}
               />
             )}
           </>
