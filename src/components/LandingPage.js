@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './LandingPage.css';
 import logo from '../logo.png';
 
 const LandingPage = (props) => {
   const handleStartGameClick = () => {
       props.onStartGame();
+  };
+
+  const navigate = useNavigate();
+
+  const navigateToChangelog = () => {
+    navigate("/changelog");
   };
 
 
@@ -14,9 +21,14 @@ const LandingPage = (props) => {
         <h1 className="hero-title">DevOpardy</h1>
         <h2 className="sub-header">The Trivia Game for DevOps &amp; Cloud</h2>
       </div>
-      <button className="start-game-button" onClick={handleStartGameClick}>
-        Start Game
-      </button>
+      <div className='button-container'>
+        <button className="start-game-button" onClick={handleStartGameClick}>
+          Start Game
+        </button>
+        <button className="changelog-button" onClick={navigateToChangelog}>
+          Changelog
+        </button>
+      </div>
       <hr className="divider" />
       <div className="game-rules-section">
         <h2 className="created-by-title">Created By</h2>
