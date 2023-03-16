@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: devopardy-ui
-        image: devopswithbrian/devopardy-ui:1.9.2
+        image: devopswithbrian/devopardy-ui:1.9.3
         ports:
         - containerPort: 80
