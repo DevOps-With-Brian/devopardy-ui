@@ -44,6 +44,24 @@
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
+
+  .changelog-button {
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #4286f4;
+    margin: auto;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  .changelog-button:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
   
   .divider {
     width: 90%;
@@ -129,4 +147,10 @@
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Optional: Add some gap between the buttons */
   }

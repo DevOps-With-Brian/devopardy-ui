@@ -190,6 +190,7 @@ body {
   flex-direction: column;
   align-items: center;
   background: linear-gradient(to right, #373B44, #4286f4);
+  gap: 3rem;
 }
 
 .new-game-button {

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
 import LandingPage from './components/LandingPage';
+import Changelog from './components/changelog/Changelog'
 
 
 const App = () => {
@@ -13,7 +15,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [gameStarted, setGameStarted] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
-  
+
 
   useEffect(() => { handleNewGameClick(); }, [])
 
@@ -130,45 +132,54 @@ const App = () => {
 
     return (
       <div className="app-container">
-        {gameStarted ? (
-          <>
-            <div className="app-header">
-              <div className="title-container">
-                <h1>DevOpardy</h1>
-                <button className="new-game-button" onClick={handleNewGameClick}>
-                  New Game
-                </button>
-              </div>
-            </div>
-            {renderCategoryList()}
-            {currentQuestion && (
-              <AnswerModal
-                question={currentQuestion.question}
-                answer={currentQuestion.answer}
-                handleClose={handleAnswerModalClose}
-                questions={questions}
-                currentQuestion={currentQuestion}
-                setQuestions={setQuestions}
-              />
-            )}
-            {showAnswerModal && (
-              <AnswerModal
-                question={currentQuestion.question}
-                answer={currentQuestion.answer}
-                handleClose={handleAnswerModalClose}
-                questions={questions}
-                currentQuestion={currentQuestion}
-                setQuestions={setQuestions}
-                showAnswer={showAnswer}
-                handleShowAnswer={handleShowAnswer}
-              />
-            )}
-          </>
-        ) : (
-          <LandingPage onStartGame={handleStartGame} />
-        )}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              gameStarted ? (
+                <>
+                  <div className="app-header">
+                    <div className="title-container">
+                      <h1>DevOpardy</h1>
+                      <button className="new-game-button" onClick={handleNewGameClick}>
+                        New Game
+                      </button>
+                    </div>
+                  </div>
+                  {renderCategoryList()}
+                  {currentQuestion && (
+                    <AnswerModal
+                      question={currentQuestion.question}
+                      answer={currentQuestion.answer}
+                      handleClose={handleAnswerModalClose}
+                      questions={questions}
+                      currentQuestion={currentQuestion}
+                      setQuestions={setQuestions}
+                    />
+                  )}
+                  {showAnswerModal && (
+                    <AnswerModal
+                      question={currentQuestion.question}
+                      answer={currentQuestion.answer}
+                      handleClose={handleAnswerModalClose}
+                      questions={questions}
+                      currentQuestion={currentQuestion}
+                      setQuestions={setQuestions}
+                      showAnswer={showAnswer}
+                      handleShowAnswer={handleShowAnswer}
+                    />
+                  )}
+                </>
+              ) : (
+                <LandingPage onStartGame={handleStartGame} />
+              )
+            }
+          />
+          <Route path="/changelog" element={<Changelog />} />
+        </Routes>
       </div>
     );
   };
+  
 
 export default App;
