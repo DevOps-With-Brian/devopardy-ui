@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './AnswerModal.css';
 
 const AnswerModal = ({ 
