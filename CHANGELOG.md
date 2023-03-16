@@ -1,3 +1,9 @@
+## 1.9.3 (2023-03-16)
+
+### Fix
+
+- **answermodal**: fixing unused var
+
 ## 1.9.2 (2023-03-16)
 
 ### Fix
