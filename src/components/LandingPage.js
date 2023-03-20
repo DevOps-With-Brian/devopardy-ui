@@ -1,17 +1,10 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import './LandingPage.css';
 import logo from '../logo.png';
 
 const LandingPage = (props) => {
   const handleStartGameClick = () => {
       props.onStartGame();
-  };
-
-  const navigate = useNavigate();
-
-  const navigateToChangelog = () => {
-    navigate("/changelog");
   };
 
 
