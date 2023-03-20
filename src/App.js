@@ -5,6 +5,7 @@ import QuestionGrid from './components/QuestionGrid';
 import AnswerModal from './components/AnswerModal';
 import LandingPage from './components/LandingPage';
 import Changelog from './components/changelog/Changelog'
+import NavBar from './components/navigation/navbar/NavBar';
 
 
 const App = () => {
@@ -132,6 +133,7 @@ const App = () => {
 
     return (
       <div className="app-container">
+        <NavBar />
         <Routes>
           <Route
             path="/"

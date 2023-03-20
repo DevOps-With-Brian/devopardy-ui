@@ -25,9 +25,6 @@ const LandingPage = (props) => {
         <button className="start-game-button" onClick={handleStartGameClick}>
           Start Game
         </button>
-        <button className="changelog-button" onClick={navigateToChangelog}>
-          Changelog
-        </button>
       </div>
       <hr className="divider" />
       <div className="game-rules-section">

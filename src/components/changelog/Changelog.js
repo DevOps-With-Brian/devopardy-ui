@@ -23,7 +23,6 @@ const Changelog = () => {
   return (
     <div className="main-container">
       <div className="container">
-        <h2 className="header">Changelog</h2>
         <div
           className="changelog-container"
           dangerouslySetInnerHTML={createMarkup()}
