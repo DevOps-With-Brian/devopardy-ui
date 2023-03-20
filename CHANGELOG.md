@@ -1,3 +1,9 @@
+## 1.11.0 (2023-03-20)
+
+### Feat
+
+- **styling**: updating styling and navbar
+
 ## 1.10.0 (2023-03-16)
 
 ### Feat
