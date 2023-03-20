@@ -1,3 +1,9 @@
+## 1.11.1 (2023-03-20)
+
+### Fix
+
+- **navbar**: fixing unused imports and such
+
 ## 1.11.0 (2023-03-20)
 
 ### Feat
