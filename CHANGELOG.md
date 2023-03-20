@@ -1,3 +1,9 @@
+## 1.12.0 (2023-03-20)
+
+### Feat
+
+- **adsense**: adding in adsense tag
+
 ## 1.11.1 (2023-03-20)
 
 ### Fix
